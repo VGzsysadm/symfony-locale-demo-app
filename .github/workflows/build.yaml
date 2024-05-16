@@ -1,0 +1,31 @@
+name: Docker Build and Push
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Login to Docker Hub
+      uses: docker/login-action@v3
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+    - name: Build the Docker image
+      run: |
+        docker build -t symfony/locale-demo-app:${{  github.ref_name }} .
+
+    - name: Tag the image
+      run: |
+        docker tag symfony/locale-demo-app:${{  github.ref_name }} vgzsysadm/symfony-locale-demo:latest
+
+    - name: Push the Docker image to Docker Hub latest
+      run: docker push vgzsysadm/symfony-locale-demo:latest
