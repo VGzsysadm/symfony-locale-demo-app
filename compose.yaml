@@ -5,6 +5,7 @@ services:
         context: Dockers/nginx
         dockerfile: Dockerfile
         args:
+          - APP_ENV=prod
       image: php:8.2.11-zts-alpine3.18
       ports:
         - "80:80"
