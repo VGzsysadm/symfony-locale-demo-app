@@ -6,7 +6,7 @@ services:
         dockerfile: Dockerfile
         args:
           - APP_ENV=prod
-      image: php:8.2.11-zts-alpine3.18
+      image: sysadm:symfony-locale-demo
       ports:
         - "80:80"
       container_name: my-app

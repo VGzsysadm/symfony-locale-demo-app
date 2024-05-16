@@ -1,8 +1,8 @@
 #!/bin/sh
-cd /var/www/html && composer install
-mv /root/.env /var/www/html/.env
+mv /root/.env /var/www/symfony-locale-demo-app/.env
+cd /var/www/symfony-locale-demo-app && composer install
 composer dump-env prod
-
+chmod -R 777 /var/www/symfony-locale-demo-app/var/cache/prod
 php-fpm -D
 status=$?
 if [ $status -ne 0 ]; then
@@ -27,3 +27,4 @@ while sleep 60; do
     echo "One of the processes has already exited."
     exit 1
   fi
+done

@@ -1,7 +1,8 @@
-FROM php:7.4.11-fpm-alpine3.12
+FROM php:8.2.11-fpm-alpine3.18
 
 ARG APP_ENV
-
+COPY ./nginx.conf /etc/nginx/nginx.conf
+COPY ./default.conf /etc/nginx/conf.d/default.conf
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 COPY ./start.sh /root
 COPY env /root/.env
