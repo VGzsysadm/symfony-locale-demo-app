@@ -1,0 +1,11 @@
+version:  '3.8'
+services:
+    nginx:
+      build:
+        context: Dockers/nginx
+        dockerfile: Dockerfile
+        args:
+      image: php:8.2.11-zts-alpine3.18
+      ports:
+        - "80:80"
+      container_name: my-app

@@ -1,0 +1,5 @@
+indice:
+    path:       /{_locale}/hello-world
+    controller: App\Controller\HelloWorldController::index
+    requirements:
+        _locale: es|en
