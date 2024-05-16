@@ -21,11 +21,11 @@ jobs:
 
     - name: Build the Docker image
       run: |
-        docker build -t symfony/locale-demo-app:${{  github.ref_name }} .
+        docker compose build
 
     - name: Tag the image
       run: |
-        docker tag symfony/locale-demo-app:${{  github.ref_name }} vgzsysadm/symfony-locale-demo:latest
+        docker tag sysadm:symfony-locale-demo vgzsysadm/symfony-locale-demo:latest
 
     - name: Push the Docker image to Docker Hub latest
       run: docker push vgzsysadm/symfony-locale-demo:latest
