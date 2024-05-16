@@ -48,9 +48,12 @@ You should see the respective "Hello friend" message in the language specified i
 
 ## Docker image
 
+1. Just docker run:
+    
     ```bash
     docker run -d -p 80:80 vgzsysadm/symfony-locale-demo
     ```
+    
 
 ## Localization
 
