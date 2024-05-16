@@ -46,6 +46,12 @@ This Symfony 7 application serves a simple "Hello, World!" message in two langua
 
 You should see the respective "Hello friend" message in the language specified in the URL.
 
+## Docker image
+
+    ```bash
+    docker run -d -p 80:80 vgzsysadm/symfony-locale-demo
+    ```
+
 ## Localization
 
 Localization files can be found in the `translations/` directory. You can add more translations or modify the existing ones to support additional languages.
