@@ -1,6 +1,7 @@
 #!/bin/sh
 mv /root/.env /var/www/symfony-locale-demo-app/.env
-cd /var/www/symfony-locale-demo-app && composer install
+cd /var/www/symfony-locale-demo-app && composer install --no-dev
+php bin/console asset-map:compile 
 composer dump-env prod
 chmod -R 777 /var/www/symfony-locale-demo-app/var/cache/prod
 php-fpm -D
